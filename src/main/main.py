@@ -22,8 +22,8 @@ def main():
     radius = 1
     side = 2
     length = 3
-    width = 3
-    height = 9
+    width = 4
+    height = 5
 
 
     circleObj = Circle(radius)
@@ -34,6 +34,28 @@ def main():
 
     rectangleObj = Rectangle(length, width)
     print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.area()))
+
+
+    # Accept inputs for radius, side length, width, and height
+    radius = float(input("Enter the radius of the circle: "))
+    side = float(input("Enter the side length of the square: "))
+    length = float(input("Enter the length of the rectangle: "))
+    width = float(input("Enter the width of the rectangle: "))
+    height = float(input("Enter the height of the rectangle: "))
+
+    # Create objects for circle, square, and rectangle
+    circleObj = Circle(radius)
+    squareObj = Square(side)
+    rectangleObj = Rectangle(length, width)
+
+    # Calculate and print the areas
+    print("Area of the circle for the given radius {}:".format(radius), circleObj.area())
+    print("Area of the square for the given side {}:".format(side), squareObj.area())
+    print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.area()))
+
+#
+# Add triangle directory and calculate the area of the triangle
+#
 
 
 
