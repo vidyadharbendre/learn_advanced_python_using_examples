@@ -27,13 +27,13 @@ def main():
 
 
     circleObj = Circle(radius)
-    print("Area of the circle for the given radius {}:".format(radius), circleObj.area())
+    print("Area of the circle for the given radius {}:".format(radius), circleObj.calculate_area())
 
     squareObj = Square(side)
-    print("Area of the square for the given side {}:".format(side), squareObj.area())
+    print("Area of the square for the given side {}:".format(side), squareObj.calculate_area())
 
     rectangleObj = Rectangle(length, width)
-    print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.area()))
+    print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.calculate_area()))
 
 
     # Accept inputs for radius, side length, width, and height
@@ -49,9 +49,9 @@ def main():
     rectangleObj = Rectangle(length, width)
 
     # Calculate and print the areas
-    print("Area of the circle for the given radius {}:".format(radius), circleObj.area())
-    print("Area of the square for the given side {}:".format(side), squareObj.area())
-    print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.area()))
+    print("Area of the circle for the given radius {}:".format(radius), circleObj.calculate_area())
+    print("Area of the square for the given side {}:".format(side), squareObj.calculate_area())
+    print("Area of the rectangle with width {} and height {}: {}".format(length, width, rectangleObj.calculate_area()))
 
 #
 # Add triangle directory and calculate the area of the triangle
