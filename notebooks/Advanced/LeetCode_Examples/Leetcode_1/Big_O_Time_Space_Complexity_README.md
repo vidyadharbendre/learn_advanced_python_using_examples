@@ -35,6 +35,17 @@ By understanding Big O notation, developers can choose the most appropriate algo
 - If we have a list of 10 elements, an O(N) algorithm will perform approximately 10 operations.
 - If the list grows to 20 elements, the algorithm will perform approximately 20 operations.
 
+- **O(N):** Linear time complexity where execution time grows linearly with the input size. Efficient for many practical use cases.
+  - **Example:** Finding the maximum value in an array.
+    ```python
+    def find_max(arr):
+        max_val = arr[0]
+        for num in arr:
+            if num > max_val:
+                max_val = num
+        return max_val
+    ```
+
 ### O(N^2)
 
 **O(N^2)**, also known as quadratic time complexity, indicates that the execution time of an algorithm grows proportionally to the square of the input data set size. In other words, if the input size doubles, the execution time increases fourfold. This complexity typically arises in algorithms that involve nested iterations over the data set.
@@ -45,6 +56,18 @@ By understanding Big O notation, developers can choose the most appropriate algo
 **Explanation:**
 - If we have a list of 10 elements, an O(N^2) algorithm will perform approximately 100 operations.
 - If the list grows to 20 elements, the algorithm will perform approximately 400 operations.
+
+- **O(N^2):** Quadratic time complexity where execution time grows quadratically with the input size. Common in algorithms with nested loops and generally less efficient.
+  - **Example:** Bubble sort algorithm.
+    ```python
+    def bubble_sort(arr):
+        n = len(arr)
+        for i in range(n):
+            for j in range(0, n-i-1):
+                if arr[j] > arr[j+1]:
+                    arr[j], arr[j+1] = arr[j+1], arr[j]
+        return arr
+    ```
 
 ## Space Complexity
 
