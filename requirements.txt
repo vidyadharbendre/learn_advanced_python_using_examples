@@ -185,4 +185,3 @@ Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1715000201
 wrapt @ file:///Users/runner/miniforge3/conda-bld/wrapt_1699532888670/work
 zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1718013267051/work
 zstandard==0.22.0
-Scikit-learn==1.5.2
