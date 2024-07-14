@@ -1,4 +1,5 @@
 import streamlit as st
+import sklearn
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 
