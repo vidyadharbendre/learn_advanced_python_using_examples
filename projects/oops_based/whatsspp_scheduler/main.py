@@ -8,7 +8,7 @@ phone_numbers = [
 ]
 
 # Common message to be sent
-common_message = "Hello, OOPs way of writing, just to send message from laptop - trial_5."
+common_message = "Hello, OOPs way of writing, TRIAL-7."
 
 # Instantiate the scheduler
 scheduler = WhatsAppMessageScheduler(phone_numbers, common_message)
