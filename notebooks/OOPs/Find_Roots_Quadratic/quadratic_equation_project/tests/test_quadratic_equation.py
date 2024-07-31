@@ -1,3 +1,5 @@
+#python -m unittest discover -s tests
+
 import unittest
 from quadratic.quadratic_equation import QuadraticEquation
 
