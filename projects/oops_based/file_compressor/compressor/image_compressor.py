@@ -1,6 +1,6 @@
 # compressor/image_compressor.py
 from PIL import Image
-from .base_compressor.py import BaseCompressor
+from .base_compressor import BaseCompressor
 
 class ImageCompressor(BaseCompressor):
 

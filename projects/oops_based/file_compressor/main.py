@@ -1,10 +1,10 @@
 import sys
 import os
 
-# Add the project root directory to PYTHONPATH
+# # Add the project root directory to PYTHONPATH
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from ui.streamlit_ui import run as run_streamlit_ui
+from ui.streamlit import run as run_streamlit_ui
 
 
 def main():

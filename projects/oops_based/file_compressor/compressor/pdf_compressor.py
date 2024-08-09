@@ -1,6 +1,6 @@
 # compressor/pdf_compressor.py
 import subprocess
-from .base_compressor.py import BaseCompressor
+from .base_compressor import BaseCompressor
 
 class PDFCompressor(BaseCompressor):
 
