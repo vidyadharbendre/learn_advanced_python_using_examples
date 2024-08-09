@@ -2,29 +2,50 @@ import streamlit as st
 import subprocess
 import os
 
-def convert_djvu_to_pdf(djvu_file_path, pdf_file_path):
-    try:
-        subprocess.check_call(['ddjvu', '-format=pdf', djvu_file_path, pdf_file_path])
-        return True
-    except subprocess.CalledProcessError as e:
-        st.error(f'Error during conversion: {e}')
-        return False
+st.title("DJVU to PDF Converter")
 
-st.title('DJVU to PDF Converter')
-
-uploaded_file = st.file_uploader("Upload a DJVU file", type="djvu")
+uploaded_file = st.file_uploader("Choose a DJVU file", type="djvu")
 
 if uploaded_file is not None:
-    # Save the uploaded file to disk
+    st.write("File details:")
+    st.write(f"Filename: {uploaded_file.name}")
+    st.write(f"File size: {uploaded_file.size} bytes")
+
+    # Save the uploaded file
     djvu_file_path = os.path.join("temp", uploaded_file.name)
-    os.makedirs(os.path.dirname(djvu_file_path), exist_ok=True)
+    os.makedirs("temp", exist_ok=True)
+    
     with open(djvu_file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
-    
-    # Set the output PDF file path
-    pdf_file_path = djvu_file_path.replace('.djvu', '.pdf')
 
-    if st.button("Convert to PDF"):
-        if convert_djvu_to_pdf(djvu_file_path, pdf_file_path):
-            with open(pdf_file_path, "rb") as f:
-                st.download_button("Download PDF", f, file_name=os.path.basename(pdf_file_path))
+    st.success(f"Saved file: {djvu_file_path}")
+
+    # Convert DJVU to PDF
+    pdf_file_path = djvu_file_path.replace(".djvu", ".pdf")
+
+    try:
+        # Replace 'djvupdf' with your actual conversion command if different
+        result = subprocess.run(["djvupdf", djvu_file_path, pdf_file_path], capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            st.success(f"Conversion successful! PDF saved as {pdf_file_path}")
+            
+            with open(pdf_file_path, "rb") as pdf_file:
+                st.download_button(
+                    label="Download PDF",
+                    data=pdf_file,
+                    file_name=os.path.basename(pdf_file_path),
+                    mime="application/pdf"
+                )
+        else:
+            st.error(f"Conversion failed: {result.stderr}")
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+
+    # Cleanup
+    if os.path.exists(djvu_file_path):
+        os.remove(djvu_file_path)
+    if os.path.exists(pdf_file_path):
+        os.remove(pdf_file_path)
+
+
