@@ -1,4 +1,11 @@
 import streamlit as st
+
+import sys
+import os
+
+# Add project root directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
 from src.services.ollama_service import OllamaService
 from src.services.response_formatter import ResponseFormatter
 
